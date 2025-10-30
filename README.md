@@ -44,7 +44,7 @@ O sistema exibirá os dados simulados do cartão e o resultado da validação an
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Python 3.x**
 - Bibliotecas padrão para manipulação de arquivos e simulação de dados
@@ -52,7 +52,7 @@ O sistema exibirá os dados simulados do cartão e o resultado da validação an
 
 ---
 
-## 📝 Observações
+## Observações
 
 - Este projeto é uma **simulação completa** e não realiza validação real de cartões.
 - Ideal para fins didáticos e demonstração de arquitetura de projeto.
