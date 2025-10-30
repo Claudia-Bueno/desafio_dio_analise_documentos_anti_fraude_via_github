@@ -3,8 +3,14 @@
 
 from analyzer import extract_card_data
 from validator import validate_card
+from config import settings
 
 def main():
+    # Mostra as configurações (simuladas)
+    print("=== Configurações do Azure (Simuladas) ===")
+    print(f"API Key: {settings.AZURE_API_KEY}")
+    print(f"Endpoint: {settings.AZURE_ENDPOINT}\n")
+    
     # Simula o caminho da imagem do cartão
     image_path = "data/sample_card.jpg"
     
