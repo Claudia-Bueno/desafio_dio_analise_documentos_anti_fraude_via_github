@@ -1,7 +1,7 @@
 # Desafio DIO – Análise de Documentos Anti-fraude com Azure AI (Simulação via GitHub)
 
 Projeto foi desenvolvido como parte do desafio **"Análise de Documentos Anti-fraude com Azure AI"** da **DIO**.  
-Como o acesso ao Azure estava temporariamente indisponível, o projeto foi feito com uma **simulação completa**, ilustrando como o sistema funcionaria com o Azure Document Intelligence (antigo Form Recognizer).
+Projeto foi feito com uma **simulação completa**, ilustrando como o sistema funcionaria com o Azure Document Intelligence (antigo Form Recognizer).
 
 ---
 
