@@ -1,26 +1,28 @@
 # validator.py
-# Simula validações anti-fraude em dados de cartão
+# Simula validações anti-fraude para dados do cartão
 
-def validate_card(card_data):
+def validate_card_data(card_data):
     """
-    Recebe um dicionário com os dados do cartão e retorna
+    Recebe um dicionário com dados do cartão e retorna
     um dicionário com possíveis alertas de fraude.
     """
     alerts = []
 
-    # Validação do número do cartão (simulada)
-    if card_data["numero"].startswith("0000"):
-        alerts.append("Número de cartão inválido")
+    # Verifica se o número do cartão tem 16 dígitos
+    numero = card_data.get("numero", "").replace(" ", "")
+    if len(numero) != 16 or not numero.isdigit():
+        alerts.append("Número do cartão inválido")
 
-    # Validação da data de validade
-    if card_data["validade"] < "23/10":  # data atual simulada
+    # Verifica se o cartão está vencido (simulação simples)
+    validade = card_data.get("validade", "")
+    if validade < "10/23":  # só como exemplo
         alerts.append("Cartão vencido")
 
-    # Validação do banco
-    if card_data["banco"] == "Banco Suspeito":
+    # Verifica se o banco é suspeito
+    banco = card_data.get("banco", "")
+    bancos_suspeitos = ["Banco Suspeito", "Banco X"]
+    if banco in bancos_suspeitos:
         alerts.append("Banco suspeito")
 
-    if not alerts:
-        alerts.append("Cartão aprovado")
-
     return alerts
+
