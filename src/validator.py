@@ -1,28 +1,31 @@
 # validator.py
-# Simula validações anti-fraude para dados do cartão
+# Simula validações anti-fraude do cartão usando configurações do Azure
 
-def validate_card_data(card_data):
+from config import settings
+
+def validate_card(card_data):
     """
     Recebe um dicionário com dados do cartão e retorna
-    um dicionário com possíveis alertas de fraude.
+    um dicionário com resultado das validações.
     """
-    alerts = []
+    results = {
+        "numero_valido": True,
+        "cartao_vencido": False,
+        "banco_suspeito": False
+    }
 
-    # Verifica se o número do cartão tem 16 dígitos
-    numero = card_data.get("numero", "").replace(" ", "")
-    if len(numero) != 16 or not numero.isdigit():
-        alerts.append("Número do cartão inválido")
+    if settings.SIMULATE_VALIDATION:
+        # Simulação de validação
+        if card_data.get("numero") == "1234 5678 9012 3456":
+            results["numero_valido"] = False
+        if card_data.get("validade") == "12/20":
+            results["cartao_vencido"] = True
+        if card_data.get("banco") == "Banco Suspeito":
+            results["banco_suspeito"] = True
+    else:
+        # Aqui você poderia colocar código real de integração com Azure
+        results = {}
+    
+    return results
 
-    # Verifica se o cartão está vencido (simulação simples)
-    validade = card_data.get("validade", "")
-    if validade < "10/23":  # só como exemplo
-        alerts.append("Cartão vencido")
-
-    # Verifica se o banco é suspeito
-    banco = card_data.get("banco", "")
-    bancos_suspeitos = ["Banco Suspeito", "Banco X"]
-    if banco in bancos_suspeitos:
-        alerts.append("Banco suspeito")
-
-    return alerts
 
