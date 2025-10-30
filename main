@@ -1,0 +1,16 @@
+# main.py
+from analyzer import analyze_card
+from validator import validate_card
+
+def main():
+    print("🚀 Iniciando a simulação de análise de documentos anti-fraude!")
+    
+    # Exemplo de uso simulado
+    card_data = analyze_card("data/sample_card.jpg")
+    result = validate_card(card_data)
+    
+    print("Dados do cartão:", card_data)
+    print("Resultado da validação:", result)
+
+if __name__ == "__main__":
+    main()
