@@ -1,0 +1,7 @@
+# Bibliotecas básicas para o projeto de análise de cartões
+
+Pillow        # manipulação de imagens
+pytest        # para testes futuros (opcional)
+
+# Se futuramente integrar ao Azure, adicione:
+# azure-ai-formrecognizer  # biblioteca oficial do Azure para reconhecimento de formulários
