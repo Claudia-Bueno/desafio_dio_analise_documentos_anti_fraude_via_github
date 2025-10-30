@@ -1,21 +1,27 @@
+# main.py
+# Programa principal para simulação de análise anti-fraude
+
 from analyzer import extract_card_data
-from validator import validate_card
+from validator import validate_card_data
 
 def main():
-    # Simula a leitura de um cartão
-    card_image = "data/sample_card.jpg"
-    card_data = extract_card_data(card_image)
+    # Simula o caminho de uma imagem de cartão
+    image_path = "data/sample_card.jpg"
 
-    # Validação anti-fraude
-    validation_result = validate_card(card_data)
-
-    # Exibe os resultados
-    print("Dados do cartão:")
+    # Extrai os dados do cartão
+    card_data = extract_card_data(image_path)
+    print("Dados do cartão extraídos:")
     for key, value in card_data.items():
         print(f"{key}: {value}")
 
-    print("\nResultado da validação anti-fraude:")
-    print(validation_result)
+    # Valida os dados do cartão
+    alerts = validate_card_data(card_data)
+    if alerts:
+        print("\n⚠️ Alertas de fraude encontrados:")
+        for alert in alerts:
+            print(f"- {alert}")
+    else:
+        print("\n✅ Nenhum alerta de fraude encontrado.")
 
 if __name__ == "__main__":
     main()
